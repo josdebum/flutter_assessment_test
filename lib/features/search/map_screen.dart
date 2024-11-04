@@ -173,7 +173,7 @@ class _MapHomeViewState extends State<MapHomeView>
               height: 18,
             ),
           ).scale(animationDuration: 1210.ms, delay: 200.ms),
-        ].rowInPadding(10),
+        ].rowInPadding(15),
       ),
     );
   }

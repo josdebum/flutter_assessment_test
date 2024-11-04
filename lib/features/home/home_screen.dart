@@ -229,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen>
                       elevation: 0,
                       centerTitle: false,
                       title: Card(
-                          elevation: 0.25,
+                          elevation: 0,
                           color: AppColors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
