@@ -279,7 +279,7 @@ class _HomeScreenState extends State<HomeScreen>
                               radius: 25,
                               backgroundColor: AppColors.primary,
                               backgroundImage:
-                              AssetImage('assets/pngs/profile_2.jpg'),
+                                  AssetImage('assets/pngs/profile_2.jpg'),
                             ),
                           ),
                         ),
@@ -311,22 +311,21 @@ class _HomeScreenState extends State<HomeScreen>
                               Container(
                                   height: _textAnimation1.value * 48.h,
                                   color: Colors.transparent,
-                                  child:  ResizableText(
+                                  child: ResizableText(
                                     "let's select your",
                                     baseFontSize: 35,
-                                    style:  AppStyle.title
+                                    style: AppStyle.title
                                         .copyWith(color: AppColors.black2),
                                   )),
                               Container(
                                   height: _textAnimation2.value * 48.h,
                                   color: Colors.transparent,
-                                  child:  ResizableText(
+                                  child: ResizableText(
                                     "perfect place",
                                     baseFontSize: 35,
-                                    style:  AppStyle.title
+                                    style: AppStyle.title
                                         .copyWith(color: AppColors.black2),
                                   )),
-
                             ],
                           ),
                         ).addHeight(24.h),
@@ -349,7 +348,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                              MainAxisAlignment.start,
                                           children: [
                                             SizedBox(
                                               height: 20.h,
@@ -363,19 +362,15 @@ class _HomeScreenState extends State<HomeScreen>
                                             SizedBox(
                                               height: 24.h,
                                             ),
-
                                             ResizableText(
-                                              CharHelper
-                                                  .addSpaceTo4DigitNumber(
-                                                  (_containerAnimation
-                                                      .value *
-                                                      1034)
+                                              CharHelper.addSpaceTo4DigitNumber(
+                                                  (_containerAnimation.value *
+                                                          1034)
                                                       .toInt()),
                                               baseFontSize: 35,
                                               style: AppStyle.title.copyWith(
-                                                  color: AppColors.white) ,
+                                                  color: AppColors.white),
                                             ),
-
                                             Text(
                                               "offers",
                                               style: AppStyle.small.copyWith(
@@ -417,7 +412,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                              MainAxisAlignment.start,
                                           children: [
                                             SizedBox(
                                               height: 20.h,
@@ -432,18 +427,14 @@ class _HomeScreenState extends State<HomeScreen>
                                               height: 24.h,
                                             ),
                                             ResizableText(
-                                              CharHelper
-                                                  .addSpaceTo4DigitNumber(
-                                                  (_containerAnimation
-                                                      .value *
-                                                      2212)
+                                              CharHelper.addSpaceTo4DigitNumber(
+                                                  (_containerAnimation.value *
+                                                          2212)
                                                       .toInt()),
                                               baseFontSize: 35,
                                               style: AppStyle.title.copyWith(
-                                                  color:
-                                                  AppColors.lightBrown) ,
+                                                  color: AppColors.lightBrown),
                                             ),
-
                                             Text(
                                               "offers",
                                               style: AppStyle.small.copyWith(
@@ -477,7 +468,7 @@ class _HomeScreenState extends State<HomeScreen>
                       width: double.infinity,
                       decoration: const BoxDecoration(
                         borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(24)),
+                            BorderRadius.vertical(top: Radius.circular(24)),
                         color: Colors.white,
                       ),
                       child: SingleChildScrollView(
@@ -520,11 +511,11 @@ class _HomeScreenState extends State<HomeScreen>
                                         assetPath: 'assets/pngs/image_1.jpg',
                                         sliderText: "Trefoleva St.",
                                         textOpacity:
-                                        _imageCardAnimation4.value == 1
-                                            ? _imageCardAnimation4.value
-                                            : 0,
+                                            _imageCardAnimation4.value == 1
+                                                ? _imageCardAnimation4.value
+                                                : 0,
                                         sliderWidth: _imageCardAnimation4
-                                            .value *
+                                                .value *
                                             MediaQuery.of(context).size.width,
                                       ),
                                       SizedBox(height: 10.h),
@@ -533,11 +524,11 @@ class _HomeScreenState extends State<HomeScreen>
                                         assetPath: 'assets/pngs/image_4.jpg',
                                         sliderText: "Trefoleva St.",
                                         textOpacity:
-                                        _imageCardAnimation2.value == 1
-                                            ? _imageCardAnimation2.value
-                                            : 0,
+                                            _imageCardAnimation2.value == 1
+                                                ? _imageCardAnimation2.value
+                                                : 0,
                                         sliderWidth: _imageCardAnimation2
-                                            .value *
+                                                .value *
                                             MediaQuery.of(context).size.width,
                                       ),
                                     ],
@@ -563,7 +554,8 @@ class ResizableText extends StatelessWidget {
   final double baseFontSize;
   final TextStyle style;
 
-  const ResizableText(this.text, {super.key, required this.baseFontSize, required this.style});
+  const ResizableText(this.text,
+      {super.key, required this.baseFontSize, required this.style});
 
   @override
   Widget build(BuildContext context) {
@@ -575,7 +567,6 @@ class ResizableText extends StatelessWidget {
         (screenWidth / 375); // 375 is a common base width (e.g., iPhone 8)
 
     return Text(text,
-        textAlign: TextAlign.left,
-        style: style.copyWith(fontSize: fontSize));
+        textAlign: TextAlign.left, style: style.copyWith(fontSize: fontSize));
   }
 }

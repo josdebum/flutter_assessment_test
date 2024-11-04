@@ -30,10 +30,6 @@ class AppColors {
   static const Color black2 = Color(0xFF232220); // Duplicate of black
   static const Color black3 = Color(0xFFF8EDE3);
 
-  // Error and Success Colors
-  static const Color error = Color(0xFFF44336);
-  static const Color successColor = Color(0xFF4CAF50);
-
   // Miscellaneous
   static const Color transparent = Color(0x00000000);
   static const Color lightBrown = Color(0xFFA5957E);

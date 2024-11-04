@@ -34,12 +34,12 @@ class _MapHomeViewState extends State<MapHomeView>
       duration: const Duration(milliseconds: 700),
       reverseDuration: const Duration(milliseconds: 1000),
     )..addStatusListener((status) {
-      if (status == AnimationStatus.dismissed) {
-        _setExpanded(false);
-      } else {
-        _setExpanded(true);
-      }
-    });
+        if (status == AnimationStatus.dismissed) {
+          _setExpanded(false);
+        } else {
+          _setExpanded(true);
+        }
+      });
 
     Future.delayed(const Duration(milliseconds: 1600), () {
       setState(() {
@@ -186,9 +186,9 @@ class _MapHomeViewState extends State<MapHomeView>
           final size = MediaQuery.of(context).size;
           return Positioned(
             top:
-            size.height * [0.220, 0.295, 0.520, 0.324, 0.490, 0.630][index],
+                size.height * [0.220, 0.295, 0.520, 0.324, 0.490, 0.630][index],
             left:
-            size.width * [0.250, 0.300, 0.130, 0.650, 0.700, 0.580][index],
+                size.width * [0.250, 0.300, 0.130, 0.650, 0.700, 0.580][index],
             child: isVisible
                 ? _buildAnimatedBubble(index)
                 : const SizedBox.shrink(),
@@ -226,25 +226,25 @@ class _MapHomeViewState extends State<MapHomeView>
             child: Center(
               child: _animationController.isCompleted
                   ? AutoSizeText(
-                [
-                  '10,3 mn ₽',
-                  '11 mn ₽',
-                  '13,3 mn ₽',
-                  '7,8 mn ₽',
-                  '8,5 mn ₽',
-                  '6,95 mn ₽'
-                ][index],
-                style: AppStyle.small.copyWith(
-                  fontSize: 10.sp,
-                  color: AppColors.white,
-                ),
-                maxLines: 1,
-                textAlign: TextAlign.center,
-              )
+                      [
+                        '10,3 mn ₽',
+                        '11 mn ₽',
+                        '13,3 mn ₽',
+                        '7,8 mn ₽',
+                        '8,5 mn ₽',
+                        '6,95 mn ₽'
+                      ][index],
+                      style: AppStyle.small.copyWith(
+                        fontSize: 10.sp,
+                        color: AppColors.white,
+                      ),
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                    )
                   : (_animationController.isDismissed
-                  ? const Icon(Icons.apartment,
-                  color: Colors.white, size: 18)
-                  : const SizedBox.shrink()),
+                      ? const Icon(Icons.apartment,
+                          color: Colors.white, size: 18)
+                      : const SizedBox.shrink()),
             ),
           ),
         );
