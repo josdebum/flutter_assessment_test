@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen>
   late final Animation<double> _imageCardAnimation4;
 
   late final ScrollController _scrollController;
-  late final Animation<Offset> _horizontalCardAnimation;
+  late Animation<Offset> _horizontalCardAnimation;
 
   double scrollOffset = 0.0;
 
@@ -170,6 +170,13 @@ class _HomeScreenState extends State<HomeScreen>
         ),
       ),
     );
+    _horizontalCardAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.1), // start offset
+      end: const Offset(0, 0), // end offset
+    ).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    ));
     // Start the animation
     _animationController.forward();
   }
@@ -205,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen>
               AppColors.white5,
               AppColors.white6,
               AppColors.primary.withOpacity(0.2),
-              AppColors.primary.withOpacity(0.6)
+              AppColors.primary.withOpacity(0.5)
             ],
           ),
         ),
@@ -450,9 +457,9 @@ class _HomeScreenState extends State<HomeScreen>
      SlideTransition(
               position: _horizontalCardAnimation,
               child: DraggableScrollableSheet(
-                  initialChildSize: screenHeight/2000,
-                  minChildSize: screenHeight/2100,
-                  maxChildSize:  screenHeight/1300,
+                  initialChildSize: 0.42,
+                  minChildSize: 0.40,
+                  maxChildSize:  0.68,
                   builder:
                       (BuildContext context, ScrollController $controller) {
                     return Container(
