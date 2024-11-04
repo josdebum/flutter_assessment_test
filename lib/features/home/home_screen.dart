@@ -447,16 +447,12 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
             ),
-        Positioned(
-          left: 0,
-          right: 0,
-          bottom:  screenHeight * 0.5 - 40,
-          child: SlideTransition(
+     SlideTransition(
               position: _horizontalCardAnimation,
               child: DraggableScrollableSheet(
                   initialChildSize: screenHeight/2000,
-                  minChildSize: screenHeight/2000,
-                  maxChildSize:  screenHeight/1200,
+                  minChildSize: screenHeight/2100,
+                  maxChildSize:  screenHeight/1300,
                   builder:
                       (BuildContext context, ScrollController $controller) {
                     return Container(
@@ -536,7 +532,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     );
                   }),
-          ) ),
+          ) ,
           ],
         ),
       ),
