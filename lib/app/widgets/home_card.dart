@@ -25,10 +25,10 @@ class HomeCard extends StatefulWidget {
   final double? height;
 
   @override
-  _HomeCardState createState() => _HomeCardState();
+  HomeCardState createState() => HomeCardState(); // Change to HomeCardState
 }
 
-class _HomeCardState extends State<HomeCard> {
+class HomeCardState extends State<HomeCard> {
   @override
   Widget build(BuildContext context) {
     return Container(

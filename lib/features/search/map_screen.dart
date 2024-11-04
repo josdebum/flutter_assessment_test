@@ -147,7 +147,7 @@ class _MapHomeViewState extends State<MapHomeView>
                     child: SvgPicture.asset(
                       "assets/svgs/search2.svg",
                       colorFilter:
-                          ColorFilter.mode(AppColors.black, BlendMode.srcIn),
+                          const ColorFilter.mode(AppColors.black, BlendMode.srcIn),
                       width: 6,
                       height: 6,
                     ),

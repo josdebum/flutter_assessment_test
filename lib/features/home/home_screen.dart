@@ -199,7 +199,6 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    double screenHeight = MediaQuery.of(context).size.height;
 
     return AnimatedBuilder(
       animation: _animationController,
@@ -245,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                         height: 42.h,
                         width: _appbarAnimation.value * 170,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: AppColors.white,
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),
@@ -256,12 +255,12 @@ class _HomeScreenState extends State<HomeScreen>
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.location_on_rounded,
                                 color: AppColors.lightBrown,
                                 size: 16,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 4,
                               ),
                               Flexible(

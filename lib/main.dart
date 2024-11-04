@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         canPop: false,
         onPopInvoked: (bool didPop){
     },
-    child:MaterialApp(
+    child:const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Assessment',
       home: NavigationWidget(),

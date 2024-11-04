@@ -102,7 +102,7 @@ class _MapDialogState extends State<MapDialog> with TickerProviderStateMixin {
 
   Widget _buildOverlayContent() {
     return Positioned(
-      bottom: 164.h,
+      bottom: 165.h,
       left: 30.w,
       child: Transform.scale(
         scale: _animation.value,
