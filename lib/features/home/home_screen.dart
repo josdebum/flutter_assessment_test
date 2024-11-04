@@ -120,12 +120,20 @@ class _HomeScreenState extends State<HomeScreen>
     );
 
     _horizontalCardAnimation =
-        Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero).animate(
+        Tween<Offset>(     begin: const Offset(0, 1), // start offset
+            end: Offset.zero, ).animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: const Interval(0.60, 0.80, curve: Curves.decelerate),
-      ),
+        curve:  Curves.easeInOut),
+
     );
+    // _horizontalCardAnimation = Tween<Offset>(
+    //   begin: const Offset(0, 0.1), // start offset
+    //   end: const Offset(0, 0), // end offset
+    // ).animate(CurvedAnimation(
+    //   parent:_,
+    //   curve: Curves.easeInOut,
+    // ));
 
     _imageCardAnimation1 = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
@@ -170,13 +178,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
       ),
     );
-    _horizontalCardAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.1), // start offset
-      end: const Offset(0, 0), // end offset
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
+
     // Start the animation
     _animationController.forward();
   }
@@ -221,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen>
             SafeArea(
               bottom: false,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 2),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -304,7 +306,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ).addHeight(8.h),
                         Container(
                           padding:  EdgeInsets.symmetric(horizontal: 16.w),
-                          height: 100.h,
+                          height: 120.h,
                           color: Colors.transparent,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -447,7 +449,7 @@ class _HomeScreenState extends State<HomeScreen>
                               ),
                             ],
                           ),
-                        ).addHeight(12.h)
+                        ).addHeight(10)
                       ],
                     ),
                   ],
@@ -457,8 +459,8 @@ class _HomeScreenState extends State<HomeScreen>
      SlideTransition(
               position: _horizontalCardAnimation,
               child: DraggableScrollableSheet(
-                  initialChildSize: 0.42,
-                  minChildSize: 0.40,
+                  initialChildSize: 0.40,
+                  minChildSize: 0.10,
                   maxChildSize:  0.68,
                   builder:
                       (BuildContext context, ScrollController $controller) {
