@@ -37,9 +37,9 @@ class _MapDialogState extends State<MapDialog> with TickerProviderStateMixin {
 
   void _initializeAnimations() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1000));
+        vsync: this, duration: const Duration(milliseconds: 1300));
     _animation = CurvedAnimation(
-        parent: widget.animationController, curve: Curves.easeOut);
+        parent: widget.animationController, curve: Curves.easeInOut);
 
     _rippleAnimation = Tween<double>(begin: _begin, end: _end).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
@@ -97,7 +97,7 @@ class _MapDialogState extends State<MapDialog> with TickerProviderStateMixin {
           child: _buildAnimatedIcon(),
         ),
       ).scale(animationDuration: 1500.ms, delay: 200.ms),
-    ).addHeight(6);
+    ).addHeight(6.h);
   }
 
   Widget _buildOverlayContent() {

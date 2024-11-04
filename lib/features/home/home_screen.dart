@@ -119,13 +119,11 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
 
-    _horizontalCardAnimation =
-        Tween<Offset>(     begin: const Offset(0, 1), // start offset
-            end: Offset.zero, ).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve:  Curves.easeInOut),
-
+    _horizontalCardAnimation = Tween<Offset>(
+      begin: const Offset(0, 1), // start offset
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
     // _horizontalCardAnimation = Tween<Offset>(
     //   begin: const Offset(0, 0.1), // start offset
@@ -226,52 +224,51 @@ class _HomeScreenState extends State<HomeScreen>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    
                     AppBar(
                       backgroundColor: Colors.transparent,
                       elevation: 0,
                       centerTitle: false,
                       title: Card(
-                        elevation: 0.42,
-                        color: AppColors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Container(
-                        padding:  EdgeInsets.symmetric(
-                          vertical: 10.h,
-                          horizontal: 16.w,
-                        ),
-                        height: 42.h,
-                        width: _appbarAnimation.value * 170,
-                        decoration: const BoxDecoration(
+                          elevation: 0.25,
                           color: AppColors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                        ),
-                        child: Opacity(
-                          opacity: _appbarAnimation2.value,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                Icons.location_on_rounded,
-                                color: AppColors.lightBrown,
-                                size: 16,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 10.h,
+                              horizontal: 16.w,
+                            ),
+                            height: 42.h,
+                            width: _appbarAnimation.value * 170,
+                            decoration: const BoxDecoration(
+                              color: AppColors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
                               ),
-                              const SizedBox(
-                                width: 4,
+                            ),
+                            child: Opacity(
+                              opacity: _appbarAnimation2.value,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.location_on_rounded,
+                                    color: AppColors.lightBrown,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  Flexible(
+                                    child: Text("Saint Petersburg",
+                                        style: AppStyle.small.copyWith(
+                                            color: AppColors.lightBrown)),
+                                  ),
+                                ],
                               ),
-                              Flexible(
-                                child: Text("Saint Petersburg",
-                                    style: AppStyle.small
-                                        .copyWith(color: AppColors.lightBrown)),
-                              ),
-                            ],
-                          ),
-                        ),
-                        )),
+                            ),
+                          )),
                       actions: [
                         Transform.scale(
                           scale: _appbarAnimation.value,
@@ -282,7 +279,7 @@ class _HomeScreenState extends State<HomeScreen>
                               radius: 25,
                               backgroundColor: AppColors.primary,
                               backgroundImage:
-                                  AssetImage('assets/pngs/profile_2.jpg'),
+                              AssetImage('assets/pngs/profile_2.jpg'),
                             ),
                           ),
                         ),
@@ -304,32 +301,37 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                         ).addHeight(8.h),
                         Container(
-                          padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
                           height: 120.h,
                           color: Colors.transparent,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Container(
-                                height: _textAnimation1.value * 48.h,
-                                color: Colors.transparent,
-                                child: Text("let's select your",
-                                    style: AppStyle.title
-                                        .copyWith(color: AppColors.black2)),
-                              ),
+                                  height: _textAnimation1.value * 48.h,
+                                  color: Colors.transparent,
+                                  child:  ResizableText(
+                                    "let's select your",
+                                    baseFontSize: 35,
+                                    style:  AppStyle.title
+                                        .copyWith(color: AppColors.black2),
+                                  )),
                               Container(
-                                height: _textAnimation2.value * 48.h,
-                                color: Colors.transparent,
-                                child: Text("perfect place",
-                                    style: AppStyle.title
-                                        .copyWith(color: AppColors.black2)),
-                              ),
+                                  height: _textAnimation2.value * 48.h,
+                                  color: Colors.transparent,
+                                  child:  ResizableText(
+                                    "perfect place",
+                                    baseFontSize: 35,
+                                    style:  AppStyle.title
+                                        .copyWith(color: AppColors.black2),
+                                  )),
+
                             ],
                           ),
                         ).addHeight(24.h),
                         Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -347,9 +349,9 @@ class _HomeScreenState extends State<HomeScreen>
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                           children: [
-                                             SizedBox(
+                                            SizedBox(
                                               height: 20.h,
                                             ),
                                             Text(
@@ -358,18 +360,22 @@ class _HomeScreenState extends State<HomeScreen>
                                                 color: AppColors.white,
                                               ),
                                             ),
-                                             SizedBox(
+                                            SizedBox(
                                               height: 24.h,
                                             ),
-                                            Text(
-                                                CharHelper
-                                                    .addSpaceTo4DigitNumber(
-                                                        (_containerAnimation
-                                                                    .value *
-                                                                1034)
-                                                            .toInt()),
-                                                style: AppStyle.title.copyWith(
-                                                    color: AppColors.white)),
+
+                                            ResizableText(
+                                              CharHelper
+                                                  .addSpaceTo4DigitNumber(
+                                                  (_containerAnimation
+                                                      .value *
+                                                      1034)
+                                                      .toInt()),
+                                              baseFontSize: 35,
+                                              style: AppStyle.title.copyWith(
+                                                  color: AppColors.white) ,
+                                            ),
+
                                             Text(
                                               "offers",
                                               style: AppStyle.small.copyWith(
@@ -381,7 +387,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       ),
                                     )),
                               ),
-                               SizedBox(
+                              SizedBox(
                                 width: 7.w,
                               ),
                               Expanded(
@@ -411,9 +417,9 @@ class _HomeScreenState extends State<HomeScreen>
                                       child: Center(
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                           children: [
-                                             SizedBox(
+                                            SizedBox(
                                               height: 20.h,
                                             ),
                                             Text(
@@ -422,19 +428,22 @@ class _HomeScreenState extends State<HomeScreen>
                                                 color: AppColors.lightBrown,
                                               ),
                                             ),
-                                             SizedBox(
+                                            SizedBox(
                                               height: 24.h,
                                             ),
-                                            Text(
-                                                CharHelper
-                                                    .addSpaceTo4DigitNumber(
-                                                        (_containerAnimation
-                                                                    .value *
-                                                                2212)
-                                                            .toInt()),
-                                                style: AppStyle.title.copyWith(
-                                                    color:
-                                                        AppColors.lightBrown)),
+                                            ResizableText(
+                                              CharHelper
+                                                  .addSpaceTo4DigitNumber(
+                                                  (_containerAnimation
+                                                      .value *
+                                                      2212)
+                                                      .toInt()),
+                                              baseFontSize: 35,
+                                              style: AppStyle.title.copyWith(
+                                                  color:
+                                                  AppColors.lightBrown) ,
+                                            ),
+
                                             Text(
                                               "offers",
                                               style: AppStyle.small.copyWith(
@@ -455,12 +464,12 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
             ),
-     SlideTransition(
+            SlideTransition(
               position: _horizontalCardAnimation,
               child: DraggableScrollableSheet(
                   initialChildSize: 0.40,
                   minChildSize: 0.10,
-                  maxChildSize:  0.68,
+                  maxChildSize: 0.68,
                   builder:
                       (BuildContext context, ScrollController $controller) {
                     return Container(
@@ -468,7 +477,7 @@ class _HomeScreenState extends State<HomeScreen>
                       width: double.infinity,
                       decoration: const BoxDecoration(
                         borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(24)),
+                        BorderRadius.vertical(top: Radius.circular(24)),
                         color: Colors.white,
                       ),
                       child: SingleChildScrollView(
@@ -511,23 +520,24 @@ class _HomeScreenState extends State<HomeScreen>
                                         assetPath: 'assets/pngs/image_1.jpg',
                                         sliderText: "Trefoleva St.",
                                         textOpacity:
-                                            _imageCardAnimation4.value == 1
-                                                ? _imageCardAnimation4.value
-                                                : 0,
+                                        _imageCardAnimation4.value == 1
+                                            ? _imageCardAnimation4.value
+                                            : 0,
                                         sliderWidth: _imageCardAnimation4
-                                                .value *
+                                            .value *
                                             MediaQuery.of(context).size.width,
                                       ),
-                                       SizedBox(height: 10.h),
+                                      SizedBox(height: 10.h),
                                       HomeCard(
                                         height: 145.h,
                                         assetPath: 'assets/pngs/image_4.jpg',
                                         sliderText: "Trefoleva St.",
                                         textOpacity:
-                                            _imageCardAnimation2.value == 1
-                                                ? _imageCardAnimation2.value
-                                                : 0,
-                                        sliderWidth: _imageCardAnimation2.value *
+                                        _imageCardAnimation2.value == 1
+                                            ? _imageCardAnimation2.value
+                                            : 0,
+                                        sliderWidth: _imageCardAnimation2
+                                            .value *
                                             MediaQuery.of(context).size.width,
                                       ),
                                     ],
@@ -540,10 +550,32 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     );
                   }),
-          ) ,
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class ResizableText extends StatelessWidget {
+  final String text;
+  final double baseFontSize;
+  final TextStyle style;
+
+  const ResizableText(this.text, {super.key, required this.baseFontSize, required this.style});
+
+  @override
+  Widget build(BuildContext context) {
+    // Get the screen width
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Calculate the font size based on the screen width
+    double fontSize = baseFontSize *
+        (screenWidth / 375); // 375 is a common base width (e.g., iPhone 8)
+
+    return Text(text,
+        textAlign: TextAlign.left,
+        style: style.copyWith(fontSize: fontSize));
   }
 }
