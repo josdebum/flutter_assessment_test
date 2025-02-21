@@ -128,44 +128,34 @@ class _MapHomeViewState extends State<MapHomeView>
   Widget _buildSearchBar(BuildContext context) {
     return Positioned(
       top: context.sizeHeight(0.06),
-      left: 30.w,
+      left: 20.w,
       height: 80.h,
-      width: context.sizeWidth(0.9),
+      right: 20.w,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Flexible(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(40),
-              child: TextFormField(
-                controller: TextEditingController(text: AppStrings.name),
-                style: AppStyle.small.copyWith(
-                  color: AppColors.black2,
-                ),
-                decoration: InputDecoration(
-                  fillColor: AppColors.white,
-                  filled: true,
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 12, 6, 12),
-                    child: SvgPicture.asset(
-                      "assets/svgs/search2.svg",
-                      colorFilter: const ColorFilter.mode(
-                          AppColors.black, BlendMode.srcIn),
-                      width: 6,
-                      height: 6,
-                    ),
-                  ),
-                  border: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  focusedErrorBorder: InputBorder.none,
-                ),
-              ).scale(animationDuration: 1200.ms, delay: 200.ms),
-            ),
-          ),
+      Container(
+        width:  context.sizeWidth(0.70) ,
+          padding: EdgeInsets.fromLTRB(20.w, 14, 20.w, 14),
+        decoration: BoxDecoration(
+          color:   AppColors.white ,
+
+            borderRadius: BorderRadius.circular(40)),
+        child : Row(
+      children: [  SvgPicture.asset(
+              "assets/svgs/search2.svg",
+              colorFilter: const ColorFilter.mode(
+                  AppColors.black, BlendMode.srcIn),
+              width: 24,
+              height: 24,
+
+          ).paddingRight(10),
+
+          Text("Saint Petersburg", style: AppStyle.body.copyWith(
+            color: AppColors.black2,
+          ), ),])).paddingRight(10).scale(animationDuration: 1200.ms, delay: 200.ms),
           CircleAvatar(
-            radius: 24,
+            radius: 26,
             backgroundColor: AppColors.white,
             foregroundColor: AppColors.white,
             child: SvgPicture.asset(
@@ -173,7 +163,7 @@ class _MapHomeViewState extends State<MapHomeView>
               height: 18,
             ),
           ).scale(animationDuration: 1210.ms, delay: 200.ms),
-        ].rowInPadding(15),
+        ]
       ),
     );
   }
@@ -202,9 +192,9 @@ class _MapHomeViewState extends State<MapHomeView>
     return AnimatedBuilder(
       animation: _animationController,
       builder: (context, child) {
-        double width = 40 + (40 * _animationController.value);
+        double width = 40 + (40 * _animationController.value); // From 35 to 75
         double horizontalPadding =
-            8 + (4 * _animationController.value);
+            8 + (4 * _animationController.value); // From 8 to 12
 
         return Align(
           alignment: Alignment.bottomLeft,

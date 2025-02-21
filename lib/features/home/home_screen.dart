@@ -451,7 +451,7 @@ class _HomeScreenState extends State<HomeScreen>
               position: _horizontalCardAnimation,
               child: DraggableScrollableSheet(
                   initialChildSize: 0.40,
-                  minChildSize: 0.10,
+                  minChildSize: 0.37,
                   maxChildSize: 0.68,
                   builder:
                       (BuildContext context, ScrollController $controller) {
