@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/widgets/map_dialog.dart';
 import 'package:flutter_assessment/core/constants/app_colors.dart';
+import 'package:flutter_assessment/core/constants/strings.dart';
 import 'package:flutter_assessment/core/themes/app_style.dart';
 import 'package:flutter_assessment/core/utils/extensions.dart';
 import 'package:flutter_assessment/core/utils/size_config.dart';
@@ -43,7 +44,7 @@ class _MapHomeViewState extends State<MapHomeView>
 
     Future.delayed(const Duration(milliseconds: 1600), () {
       setState(() {
-        isVisible = true; // Show the widget after the delay
+        isVisible = true;
       });
       _animationController.forward();
     });
@@ -89,7 +90,6 @@ class _MapHomeViewState extends State<MapHomeView>
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       color: AppColors.black.withOpacity(0.5),
-      // Adjust opacity to control darkness
       colorBlendMode: BlendMode.darken,
     );
   }
@@ -106,7 +106,7 @@ class _MapHomeViewState extends State<MapHomeView>
           children: [
             const Icon(Icons.sort_rounded, color: AppColors.white, size: 18),
             Text(
-              'List of variants',
+              AppStrings.listVariant,
               style: AppStyle.small.copyWith(
                 color: AppColors.white,
               ),
@@ -137,7 +137,7 @@ class _MapHomeViewState extends State<MapHomeView>
             child: ClipRRect(
               borderRadius: BorderRadius.circular(40),
               child: TextFormField(
-                controller: TextEditingController(text: 'Saint Petersburg'),
+                controller: TextEditingController(text: AppStrings.name),
                 style: AppStyle.small.copyWith(
                   color: AppColors.black2,
                 ),
@@ -202,9 +202,9 @@ class _MapHomeViewState extends State<MapHomeView>
     return AnimatedBuilder(
       animation: _animationController,
       builder: (context, child) {
-        double width = 40 + (40 * _animationController.value); // From 35 to 75
+        double width = 40 + (40 * _animationController.value);
         double horizontalPadding =
-            8 + (4 * _animationController.value); // From 8 to 12
+            8 + (4 * _animationController.value);
 
         return Align(
           alignment: Alignment.bottomLeft,

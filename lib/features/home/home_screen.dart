@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assessment/app/widgets/home_card.dart';
 import 'package:flutter_assessment/core/constants/app_colors.dart';
+import 'package:flutter_assessment/core/constants/strings.dart';
 import 'package:flutter_assessment/core/themes/app_style.dart';
 import 'package:flutter_assessment/core/utils/char_helper.dart';
 import 'package:flutter_assessment/core/utils/extensions.dart';
@@ -17,11 +18,9 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
 
-  // Animation for the appbar with entails the location and profile avatar
   late final Animation<double> _appbarAnimation;
   late final Animation<double> _appbarAnimation2;
 
-  // Animation for the name
   late final Animation<double> _nameAnimation;
 
   late final Animation<double> _textAnimation1;
@@ -125,13 +124,6 @@ class _HomeScreenState extends State<HomeScreen>
     ).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
-    // _horizontalCardAnimation = Tween<Offset>(
-    //   begin: const Offset(0, 0.1), // start offset
-    //   end: const Offset(0, 0), // end offset
-    // ).animate(CurvedAnimation(
-    //   parent:_,
-    //   curve: Curves.easeInOut,
-    // ));
 
     _imageCardAnimation1 = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
@@ -261,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen>
                                     width: 4,
                                   ),
                                   Flexible(
-                                    child: Text("Saint Petersburg",
+                                    child: Text(AppStrings.name,
                                         style: AppStyle.small.copyWith(
                                             color: AppColors.lightBrown)),
                                   ),
@@ -295,7 +287,7 @@ class _HomeScreenState extends State<HomeScreen>
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Opacity(
                             opacity: _nameAnimation.value,
-                            child: Text('Hi, Marina',
+                            child: Text(AppStrings.hi,
                                 style: AppStyle.header
                                     .copyWith(color: AppColors.lightBrown)),
                           ),
@@ -312,7 +304,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   height: _textAnimation1.value * 48.h,
                                   color: Colors.transparent,
                                   child: ResizableText(
-                                    "let's select your",
+                                    AppStrings.letSelectYour,
                                     baseFontSize: 35,
                                     style: AppStyle.title
                                         .copyWith(color: AppColors.black2),
@@ -321,7 +313,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   height: _textAnimation2.value * 48.h,
                                   color: Colors.transparent,
                                   child: ResizableText(
-                                    "perfect place",
+                                    AppStrings.perfectPlace,
                                     baseFontSize: 35,
                                     style: AppStyle.title
                                         .copyWith(color: AppColors.black2),
@@ -354,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen>
                                               height: 20.h,
                                             ),
                                             Text(
-                                              "BUY",
+                                              AppStrings.buy,
                                               style: AppStyle.small.copyWith(
                                                 color: AppColors.white,
                                               ),
@@ -372,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen>
                                                   color: AppColors.white),
                                             ),
                                             Text(
-                                              "offers",
+                                              AppStrings.offers,
                                               style: AppStyle.small.copyWith(
                                                   color: AppColors.white,
                                                   fontSize: 12.sp),
@@ -418,7 +410,7 @@ class _HomeScreenState extends State<HomeScreen>
                                               height: 20.h,
                                             ),
                                             Text(
-                                              "RENT",
+                                              AppStrings.rents,
                                               style: AppStyle.small.copyWith(
                                                 color: AppColors.lightBrown,
                                               ),
@@ -436,7 +428,7 @@ class _HomeScreenState extends State<HomeScreen>
                                                   color: AppColors.lightBrown),
                                             ),
                                             Text(
-                                              "offers",
+                                              AppStrings.offers,
                                               style: AppStyle.small.copyWith(
                                                   color: AppColors.lightBrown,
                                                   fontSize: 12.sp),
@@ -478,7 +470,7 @@ class _HomeScreenState extends State<HomeScreen>
                           children: [
                             HomeCard(
                               assetPath: 'assets/pngs/image_3.jpg',
-                              sliderText: "Gladkova St., 25",
+                              sliderText: AppStrings.address,
                               textOpacity: _imageCardAnimation1.value == 1
                                   ? _imageCardAnimation1.value
                                   : 0,
@@ -494,7 +486,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   child: HomeCard(
                                     height: 300.h,
                                     assetPath: 'assets/pngs/image_1.jpg',
-                                    sliderText: "Gubina St., 11",
+                                    sliderText: AppStrings.address2,
                                     textOpacity: _imageCardAnimation3.value == 1
                                         ? _imageCardAnimation3.value
                                         : 0,
@@ -509,7 +501,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       HomeCard(
                                         height: 145.h,
                                         assetPath: 'assets/pngs/image_1.jpg',
-                                        sliderText: "Trefoleva St.",
+                                        sliderText: AppStrings.address3,
                                         textOpacity:
                                             _imageCardAnimation4.value == 1
                                                 ? _imageCardAnimation4.value
@@ -522,7 +514,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       HomeCard(
                                         height: 145.h,
                                         assetPath: 'assets/pngs/image_4.jpg',
-                                        sliderText: "Trefoleva St.",
+                                        sliderText: AppStrings.address3,
                                         textOpacity:
                                             _imageCardAnimation2.value == 1
                                                 ? _imageCardAnimation2.value
@@ -559,13 +551,10 @@ class ResizableText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the screen width
     double screenWidth = MediaQuery.of(context).size.width;
 
-    // Calculate the font size based on the screen width
     double fontSize = baseFontSize *
-        (screenWidth / 375); // 375 is a common base width (e.g., iPhone 8)
-
+        (screenWidth / 375);
     return Text(text,
         textAlign: TextAlign.left, style: style.copyWith(fontSize: fontSize));
   }
