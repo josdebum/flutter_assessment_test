@@ -271,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen>
                               radius: 25,
                               backgroundColor: AppColors.primary,
                               backgroundImage:
-                                  AssetImage('assets/pngs/profile_2.jpg'),
+                                  AssetImage('assets/pngs/profile.jpg'),
                             ),
                           ),
                         ),
